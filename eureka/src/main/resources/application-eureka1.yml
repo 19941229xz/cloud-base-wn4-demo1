@@ -4,8 +4,8 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8762/eureka,http://localhost:8763/eureka
-
+      bj-zone2: http://localhost:8762/eureka
+      bj-zone3: http://localhost:8763/eureka
 
   instance:
     metadata-map:
