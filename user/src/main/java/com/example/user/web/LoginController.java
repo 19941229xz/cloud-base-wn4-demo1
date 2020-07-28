@@ -22,6 +22,7 @@ public class LoginController {
         //从data util中获取正确的验证码
         String rightCode = DataUtil.phoneCodeMap
                 .get(loginParam.getPhone());
+        /// ///
 
         if(rightCode.equals(loginParam.getPhoneCode())){
             return "登录成功";
