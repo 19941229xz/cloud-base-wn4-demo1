@@ -1,0 +1,7 @@
+server:
+  port: 1011
+
+eureka:
+  instance:
+    metadata-map:
+      zone: bj-zone1  # 给该服务节点 配置机房信息

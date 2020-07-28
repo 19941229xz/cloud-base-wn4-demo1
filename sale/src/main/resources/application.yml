@@ -1,0 +1,18 @@
+server:
+  port: 5050
+
+
+spring:
+  application:
+    name: sale
+
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+
+  instance:
+    metadata-map:
+      zone: bj-zone2
