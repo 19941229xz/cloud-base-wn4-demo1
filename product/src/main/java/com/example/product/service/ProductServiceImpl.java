@@ -23,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
 
         //如果添加数据库成功  我们将这个数据写入redis
 
-//////
+////// ///////
         return 0;
     }
 
