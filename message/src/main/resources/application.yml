@@ -1,10 +1,14 @@
 
 
 
-
 spring:
   application:
     name: message
+  redis:
+    port: 6379
+    host: localhost
+  profiles:
+    active: message1
 
 eureka:
   client:
@@ -21,5 +25,7 @@ eureka:
       bj-zone3: http://localhost:8763/eureka
   instance:
     prefer-ip-address: true
+
+
 
 

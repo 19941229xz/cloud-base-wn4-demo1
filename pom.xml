@@ -49,6 +49,7 @@
         <module>order</module>
         <module>eureka</module>
         <module>message</module>
+        <module>product</module>
     </modules>
 
 

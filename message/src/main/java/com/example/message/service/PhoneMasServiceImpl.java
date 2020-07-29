@@ -8,12 +8,18 @@ import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
 
 @Service
 public class PhoneMasServiceImpl implements PhoneMsqService {
+
+
+    @Autowired
+    RedisServiceImpl redisService;
+
     @Override
     public String sendPhoneMsg(String phoneNum,String code) {
 
@@ -32,7 +38,9 @@ public class PhoneMasServiceImpl implements PhoneMsqService {
         request.putQueryParameter("TemplateCode", "SMS_191768213");
 
 //        String randomeCode = (new Random().nextInt(89999)+10000)+"";
-
+        // 将手机验证码存放到redis中  手机作为 key 验证码作为 value
+        // 过期时间设置为三分钟
+        redisService.set(phoneNum,code,(long)3*60*1000);
         request.putQueryParameter("TemplateParam", "{\"code\":\""+code+"\"}");
         try {
             CommonResponse response = client.getCommonResponse(request);
